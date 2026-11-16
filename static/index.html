@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHIFA شفا — Clinic &amp; Pharmacy AI (Demo)</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>SHIFA <span class="urdu">شفا</span> <small>Clinic &amp; Pharmacy AI</small></h1>
+  <p class="tagline">Cashless clinic + pharmacy for Islamabad — demo build</p>
+</header>
+<div class="banner">
+  <b>DEMO — study aid, NOT medical advice.</b> No real payments are processed.
+  The Raast QR is a DEMO payload (merchant ID DEMO-RAAST-0000); a real Raast merchant QR
+  needs the clinic's bank-issued merchant ID. WhatsApp reminders run through a simulator —
+  real sending needs the owner's Meta Cloud API setup and is OFF by default.
+</div>
+<nav>
+  <button data-tab="dashboard" class="active">Dashboard</button>
+  <button data-tab="book">Book Appointment</button>
+  <button data-tab="appts">Appointments</button>
+  <button data-tab="reminders">Reminders</button>
+  <button data-tab="pharmacy">Pharmacy</button>
+</nav>
+
+<section id="tab-dashboard" class="tab active">
+  <h2>Today's Dashboard</h2>
+  <div class="cards" id="dash-cards"></div>
+  <h3>Today's appointments</h3>
+  <div id="dash-appts"></div>
+</section>
+
+<section id="tab-book" class="tab">
+  <h2>Book an Appointment</h2>
+  <form id="book-form">
+    <label>Patient name <input name="patient_name" required placeholder="e.g. Ahmed Raza (DEMO)"></label>
+    <label>Phone (WhatsApp) <input name="patient_phone" required placeholder="03XX-XXXXXXX"></label>
+    <label>Doctor <select name="doctor_id" id="doctor-select"></select></label>
+    <label>Service <select name="service_id" id="service-select"></select></label>
+    <label>Date <input type="date" name="appt_date" id="appt-date" required></label>
+    <label>Time slot <select name="slot" id="slot-select"></select></label>
+    <button type="submit">Book (tentative) — show Raast QR</button>
+  </form>
+  <div id="booking-result"></div>
+</section>
+
+<section id="tab-appts" class="tab">
+  <h2>Appointments</h2>
+  <label>Date <input type="date" id="appts-date"></label>
+  <button id="appts-refresh">Refresh</button>
+  <div id="appts-list"></div>
+</section>
+
+<section id="tab-reminders" class="tab">
+  <h2>WhatsApp Reminders (Roman Urdu)</h2>
+  <p>Reminders are queued for <b>confirmed</b> bookings. Sending uses the built-in
+  simulator unless the owner has set up Meta Cloud API (WHATSAPP_TOKEN) — currently OFF.</p>
+  <label>Date <input type="date" id="rem-date"></label>
+  <button id="rem-generate">Generate reminders for date</button>
+  <button id="rem-refresh">Refresh queue</button>
+  <div id="rem-list"></div>
+</section>
+
+<section id="tab-pharmacy" class="tab">
+  <h2>Pharmacy — Supplier Bill Reader</h2>
+  <p id="ocr-status">Checking OCR…</p>
+  <form id="invoice-form">
+    <label>Paste bill text (one item per line, e.g. <code>Paracetamol 500mg x 100 @ 12.50 = 1250</code>
+      or CSV <code>Name, qty, price</code>)</label>
+    <textarea name="text" rows="6" placeholder="Paracetamol 500mg x 100 @ 12.50 = 1250&#10;Amoxicillin 500mg, 50, 180"></textarea>
+    <label>…or upload a bill file (.txt / .csv, or a photo if OCR is installed)
+      <input type="file" name="file" id="invoice-file"></label>
+    <button type="submit">Parse bill</button>
+  </form>
+  <div id="invoice-result"></div>
+  <h3>Inventory</h3>
+  <label><input type="checkbox" id="low-only"> Low stock only</label>
+  <button id="inv-refresh">Refresh</button>
+  <div id="inv-list"></div>
+</section>
+
+<footer>
+  <p>SHIFA (شفا) — demo build for Islamabad clinics &amp; pharmacies going cashless.
+  Context: Islamabad is targeted to become Pakistan's first fully cashless city by 31 Dec 2026
+  (Dawn, 13 Nov 2026). No cash will be accepted in ICT administration / CDA departments after
+  30 Nov 2026. The Interior Ministry statement cited by Dawn says 26,000 merchants are already
+  connected to the digital payments system (minister's statement, not independently verified).</p>
+</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

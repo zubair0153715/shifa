@@ -1,0 +1,27 @@
+body { font-family: system-ui, sans-serif; max-width: 900px; margin: 0 auto; padding: 0 16px 40px; color: #222; }
+header h1 { color: #0b6e4f; margin-bottom: 0; }
+.urdu { color: #0b6e4f; }
+.tagline { color: #555; margin-top: 4px; }
+.banner { background: #fff3cd; border: 1px solid #e6c200; padding: 12px; border-radius: 8px; margin: 12px 0; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+nav button { padding: 10px 14px; border: 1px solid #0b6e4f; background: #fff; color: #0b6e4f; border-radius: 8px; cursor: pointer; }
+nav button.active { background: #0b6e4f; color: #fff; }
+.tab { display: none; } .tab.active { display: block; }
+form label { display: block; margin: 10px 0; }
+input, select, textarea { width: 100%; padding: 9px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+button { padding: 10px 16px; background: #0b6e4f; color: #fff; border: none; border-radius: 8px; cursor: pointer; margin: 6px 4px 6px 0; }
+button.secondary { background: #666; } button.danger { background: #a33; }
+.cards { display: flex; gap: 12px; flex-wrap: wrap; }
+.card { border: 1px solid #ddd; border-radius: 10px; padding: 14px; min-width: 130px; flex: 1; }
+.card b { font-size: 1.6em; display: block; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #eee; }
+.badge { padding: 2px 8px; border-radius: 10px; font-size: .85em; }
+.badge.tentative { background: #fff3cd; } .badge.confirmed { background: #d4edda; }
+.badge.released, .badge.no-show { background: #f8d7da; } .badge.completed { background: #d1ecf1; }
+.badge.low { background: #f8d7da; font-weight: bold; }
+.qr-box { border: 2px dashed #0b6e4f; border-radius: 10px; padding: 16px; margin: 14px 0; }
+.qr-box img { max-width: 220px; display: block; margin: 10px 0; }
+code { background: #f4f4f4; padding: 1px 5px; border-radius: 4px; }
+footer { margin-top: 32px; font-size: .85em; color: #666; border-top: 1px solid #ddd; padding-top: 12px; }
+.msg { background: #eef7f1; border: 1px solid #bfe3cf; border-radius: 8px; padding: 12px; margin: 10px 0; white-space: pre-wrap; }
